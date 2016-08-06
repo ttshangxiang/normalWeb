@@ -17,6 +17,7 @@
   "keywords": [],
   "author": "Your name here",
   "devDependencies": {
+    "babel-eslint": "^6.1.2",
     "bower-webpack-plugin": "^0.1.9",
     "copyfiles": "^0.2.1",
     "core-js": "^2.4.1",
