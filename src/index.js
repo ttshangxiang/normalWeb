@@ -1,3 +1,2 @@
-
-var util = require('./public/util');
-util.alert(util.me);
+var $ = require('jquery');
+$('body').html('hehe');

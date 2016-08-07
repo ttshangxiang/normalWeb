@@ -33,5 +33,8 @@ module.exports = {
       actions: `${defaultSettings.srcPath}/actions/`
     }
   },
+  externals: {
+    jquery: 'window.$'
+  },
   module: {}
 };
