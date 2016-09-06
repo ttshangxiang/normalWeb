@@ -2,7 +2,8 @@
 let path = require('path');
 var webpack = require('webpack');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+let ExtractTextPlugin = require("extract-text-webpack-plugin");
+let CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // Additional npm or bower modules to include in builds
 // Add all foreign plugins you may need into this array
@@ -20,7 +21,7 @@ let config = {
     devtool: 'eval',
     output: {
         path: path.join(__dirname, '../'),
-        filename: '/dist/js/[name].js',
+        filename: './dist/js/[name].js',
         publicPath: defaultSettings.publicPath
     },
     devServer: {
@@ -52,7 +53,10 @@ let config = {
             chunks: chunks,
             minChunks: chunks.length // 提取所有entry共同依赖的模块
         }),
-        new ExtractTextPlugin('./dist/css/[name]-[contenthash:8].css')
+        new ExtractTextPlugin('./dist/css/[name]-[contenthash:8].css'),
+        new CopyWebpackPlugin([
+            { from: './src/lib', to: './dist/lib', toType: 'dir'}
+        ])
     ]
 };
 

@@ -14,7 +14,7 @@ let config = Object.assign({}, baseConfig, {
     cache: false,
     output: {
         path: path.join(__dirname, '../'),
-        filename: '/dist/js/[name]-[chunkhash:8].js',
+        filename: './dist/js/[name]-[chunkhash:8].js',
         publicPath: defaultSettings.publicPath
     },
     devtool: 'sourcemap',

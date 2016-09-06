@@ -6,6 +6,13 @@ const WebpackDevServer = require('webpack-dev-server');
 const config = require('./webpack.config');
 const open = require('open');
 
+config.devServer.proxy = {
+	'/web/api*': {
+        target: 'http://120.24.219.112:8080/',
+        secure: false
+    }
+}
+
 new WebpackDevServer(webpack(config), config.devServer)
 .listen(config.port, 'localhost', (err) => {
   if (err) {
